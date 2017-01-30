@@ -6,12 +6,13 @@
   "author": "nicolaslopezj",
   "license": "MIT",
   "scripts": {
-    "build": "babel ./src --out-dir ./lib && yarn run build-styles && yarn run delete-old-files",
-    "delete-old-files": "find ./lib -mtime +20s -delete -mindepth 1",
+    "build": "rm -rf ./lib && babel ./src --out-dir ./lib && yarn run build-styles",
     "build-styles": "find src/ -name '*.less' -exec lessc {} \\; > ./lib/styles.css",
     "prepublish": "yarn run build",
     "test": "yarn run lint && jest",
     "watch": "watch yarn\\ run\\ build ./src",
+    "watch:js": "babel --watch ./src --out-dir ./lib",
+    "watch:less": "watch yarn\\ run\\ build-styles ./src",
     "test-watch": "jest --watch",
     "lint": "standard \"src/**/*.js\""
   },
