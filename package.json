@@ -1,12 +1,12 @@
 {
-  "name": "module",
+  "name": "orionx",
   "version": "1.0.1",
   "main": "lib/index.js",
-  "repository": "http://github.com/orionsoft/module",
-  "author": "nicolaslopezj",
-  "license": "MIT",
+  "repository": "http://github.com/orionx-dev/orionx",
+  "author": "Orionx",
   "scripts": {
     "build": "rm -rf ./lib && babel ./src --out-dir ./lib && yarn run build-styles",
+    "use-local": "yarn link orionx",
     "build-styles": "find src/ -name '*.less' -exec lessc {} \\; > ./lib/styles.css",
     "prepublish": "yarn run build",
     "test": "yarn run lint && jest",
@@ -24,6 +24,9 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.5.0",
     "eslint": ">=3.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-standard": "^3.1.0",
     "jest-cli": "^15.1.1",
     "less": "^2.7.2",
     "react": "^15.4.2",
@@ -37,6 +40,7 @@
   },
   "dependencies": {
     "autobind-decorator": "^1.3.4",
+    "eslint-config-standard": "^11.0.0",
     "lodash": "^4.17.3"
   },
   "jest": {
